@@ -1,0 +1,16 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: customFont;
+}
+
+@font-face {
+    font-family: customFont;
+    src: url(../public/fonts/URWDIN-Medium.ttf);
+}
+
+body {
+    background-color: #f1e4e4;
+    height: 1000px;
+}

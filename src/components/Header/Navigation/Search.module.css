@@ -1,0 +1,36 @@
+.input {
+    font-size: 14px;
+    width: 200px;
+    height: 31px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    padding: 0 15px;
+    display: flex;
+    border: 1px solid #cfcfcf;
+}
+
+.search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    background-color: #2B5235;
+    position: absolute;
+    right: 3px;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.search>div>img {
+    width: 100%;
+    height: 100%;
+}

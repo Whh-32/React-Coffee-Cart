@@ -1,0 +1,7 @@
+.container {
+    position: relative;
+    top: 70px;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: rgb(255, 215, 215);
+}
