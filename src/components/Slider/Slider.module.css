@@ -1,7 +1,60 @@
-.container {
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     top: 70px;
     width: 100%;
-    height: calc(100vh - 70px);
+    height: 400px;
     background-color: rgb(255, 215, 215);
+    overflow: hidden;
 }
+
+.container {
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.description {
+    position: absolute;
+    width: 500px;
+    z-index: 200;
+    bottom: 80px;
+    left: 80px;
+}
+
+.description>h2 {
+    color: rgb(255, 255, 255);
+    font-size: 35px;
+}
+
+.description>span {
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+}
+
+
+.container>img {
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+    left: 0%;
+    object-fit: cover;
+    transition: all 1500ms;
+}
+
+.arrow {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin: 10px;
+    z-index: 100;
+}
+
+.arrow>img {
+    width: 100%;
+}
+
