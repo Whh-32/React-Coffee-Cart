@@ -1,0 +1,49 @@
+.Category {
+    width: 240px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    cursor: pointer;
+    transition: all 800ms;
+}
+
+.Category>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+}
+
+.Category>span {
+    width: 34px;
+    height: 30px;
+    margin: 10px;
+    background-color: rgb(201, 201, 201);
+    background: url(/src/images/service.png);
+}
+
+.title {
+    display: block;
+    font-size: 16px;
+}
+
+.desc {
+    display: block;
+    font-size: 13px;
+    color: rgb(46, 46, 46);
+}
+
+@media (max-width: 992px) {
+    .Category {
+        flex-flow: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .Category {
+        width: 165px;
+        height: 90px;
+    }
+}

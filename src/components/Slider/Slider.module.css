@@ -7,6 +7,7 @@
     height: 400px;
     background-color: rgb(255, 215, 215);
     overflow: hidden;
+    transition: all 500ms;
 }
 
 .container {
@@ -58,3 +59,28 @@
 .sliderPoint>ul>li.active {
     background-color: rgb(45, 167, 100);
 }
+
+
+@media  (max-width: 600px) {
+    .slider {
+      height: 200px;
+    }
+  }
+
+  @media  (min-width: 600px) {
+    .slider {
+      height: 300px;
+    }
+  }
+
+  @media (min-width: 760px) {
+    .slider {
+      height: 400px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .slider {
+      height: 400px;
+    }
+  }
