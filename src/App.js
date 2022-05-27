@@ -6,6 +6,7 @@ import Navigation from "./components/Header/Navigation/Navigation";
 import Slider from "./components/Slider/Slider";
 import CategoryContain from "./components/Category/CategoryContain";
 import Footer from "./components/Footer/Footer";
+import Shop from "./components/Shop/Shop";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Header />
       <Slider />
       <CategoryContain />
+      <Shop />
       <Footer />
     </Fragment>
   );
