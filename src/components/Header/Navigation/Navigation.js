@@ -1,10 +1,21 @@
-import classes from "./Navigation.module.css"
-import logo from "../../../images/maxx-coffee.png"
-import basketLogo from "../../../images/icons8-basketBlack-24.png"
-import personLogo from "../../../images/icons8-personBlack-24.png"
-import Search from "./Search"
+import { useContext } from "react";
+
+import CartContext from "../../Context/CartContext";
+
+import classes from "./Navigation.module.css";
+import logo from "../../../images/maxx-coffee.png";
+import basketLogo from "../../../images/icons8-basketBlack-24.png";
+import personLogo from "../../../images/icons8-personBlack-24.png";
+import Search from "./Search";
 
 const Navigation = () => {
+    const cartCtx = useContext(CartContext);
+    const numberOfCart = cartCtx.products.length;
+
+    // const numberOfCart = cartCtx.products.reduce((acc, product) => {      /*warning...*/
+    //     return acc + product;
+    // }, 0)
+
     return (
         <nav className={classes.nav}>
             <div className={classes.leftNav}>
@@ -20,7 +31,7 @@ const Navigation = () => {
                         <img src={personLogo} alt="login icon" />
                     </i>
                     <i>
-                        <div>0</div>
+                        <div>{numberOfCart}</div>
                         <img src={basketLogo} alt="basket icon" />
                     </i>
                 </div>

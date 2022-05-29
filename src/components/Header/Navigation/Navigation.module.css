@@ -68,11 +68,13 @@
     color: rgb(255, 255, 255);
     position: absolute;
     font-style: normal;
-    width: 16px;
-    height: 16px;
+    min-width: 16px;
+    min-height: 16px;
+    padding: 2px;
     background-color: #2B5235;
     border-radius: 20px;
     right: 13px;
     top: 22px;
     z-index: 2;
+    transition: all 500ms;
 }

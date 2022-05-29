@@ -1,0 +1,41 @@
+.add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgb(231, 85, 85);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.add>img {
+    width: 18px;
+    object-fit: contain;
+}
+
+.addCart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgb(231, 85, 85);
+}
+
+.buttons {
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.addCart>span {
+    color: rgb(255, 255, 255);
+}
