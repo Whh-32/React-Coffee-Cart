@@ -34,7 +34,7 @@
     flex-flow: column;
     width: 100%;
     height: 45%;
-    background-color: aliceblue;
+    background-color: rgb(255, 255, 255);
 }
 
 .information {
@@ -72,7 +72,7 @@
     justify-content: flex-end;
     flex-flow: column;
     width: 100%;
-    background-color: aliceblue;
+    background-color: rgb(255, 255, 255);
     margin-top: 8px;
 }
 
