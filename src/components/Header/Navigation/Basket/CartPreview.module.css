@@ -15,6 +15,10 @@
     overflow: hidden;
 }
 
+.cartPreview:hover {
+    display: flex;
+}
+
 .basket {
     width: 22px;
     height: 22px;
@@ -47,7 +51,7 @@
     transition: all 500ms;
 }
 
-.basket:hover .cartPreview {
+.basket:hover ~ .cartPreview {
     display: flex;
 }
 

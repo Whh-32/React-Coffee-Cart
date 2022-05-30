@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { Fragment, useContext } from 'react'
 
 import classes from "./CartPreview.module.css"
 import CartContext from "../../../Context/CartContext";
@@ -10,8 +10,8 @@ const CartPreview = () => {
     const numberOfCart = cartCtx.products.length;
     const product = cartCtx.products.map((product, index) => (
         <ProductPreview
-            key= {index}
-            id= {product.id}
+            key={index}
+            id={product.id}
             title={product.title}
             description={product.description}
             price={product.price}
@@ -20,9 +20,11 @@ const CartPreview = () => {
     ));
 
     return (
-        <i className={classes.basket}>
-            <div className={classes.amount}>{numberOfCart}</div>
-            <img src={basketLogo} alt="basket icon" />
+        <Fragment>
+            <i className={classes.basket} onClick={() => { console.log("clicked") }}>
+                <div className={classes.amount}>{numberOfCart}</div>
+                <img src={basketLogo} alt="basket icon" />
+            </i>
             <div className={classes.cartPreview}>
                 <div className={classes.cart}>
                     <div className={classes.header}>{"Go To Cart >"}</div>
@@ -35,7 +37,7 @@ const CartPreview = () => {
                     </div>
                 </div>
             </div>
-        </i>
+        </Fragment>
     )
 }
 
