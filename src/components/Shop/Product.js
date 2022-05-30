@@ -9,10 +9,12 @@ const Products = (props) => {
     const dataHandler = (amount) => {
         cartCtx.addProduct({
             title: props.title,
-            describe: props.description,
+            description: props.description,
             price: props.price,
             img: props.img,
+            id: props.id,
             amount: amount
+            
         });
     }
 
@@ -25,7 +27,7 @@ const Products = (props) => {
                 <div className={classes.information}>
                     <span className={classes.title} >{props.title}</span>
                     <span className={classes.text} >{props.description}</span>
-                    <span className={classes.price} >{props.price}</span>
+                    <span className={classes.price} >${props.price}</span>
                 </div>
                 <div className={classes.cart}>
                     <Cart onDataToCart={dataHandler} />

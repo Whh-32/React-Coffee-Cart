@@ -4,7 +4,7 @@ import CartContext from "./CartContext";
 const cartReducer = (state, action) => {
     if (action.type === "ADD") {
         const updatProducts = state.products.concat(action.product);
-        const updatTotalAmount = state.totalAmount + action.product.amount;
+        const updatTotalAmount = state.totalAmount + action.product.price ;
         return {
             products: updatProducts,
             totalAmount: updatTotalAmount

@@ -1,16 +1,12 @@
-import { useContext } from "react";
-
-import CartContext from "../../Context/CartContext";
+import React from "react";
 
 import classes from "./Navigation.module.css";
 import logo from "../../../images/maxx-coffee.png";
-import basketLogo from "../../../images/icons8-basketBlack-24.png";
 import personLogo from "../../../images/icons8-personBlack-24.png";
 import Search from "./Search";
+import CartPreview from "./Basket/CartPreview";
 
 const Navigation = () => {
-    const cartCtx = useContext(CartContext);
-    const numberOfCart = cartCtx.products.length;
 
     // const numberOfCart = cartCtx.products.reduce((acc, product) => {      /*warning...*/
     //     return acc + product;
@@ -30,10 +26,7 @@ const Navigation = () => {
                     <i>
                         <img src={personLogo} alt="login icon" />
                     </i>
-                    <i>
-                        <div>{numberOfCart}</div>
-                        <img src={basketLogo} alt="basket icon" />
-                    </i>
+                    <CartPreview />
                 </div>
             </div>
         </nav>
