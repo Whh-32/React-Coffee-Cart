@@ -7,7 +7,9 @@ import ProductPreview from './ProductPreview';
 
 const CartPreview = () => {
     const cartCtx = useContext(CartContext);
-    const numberOfCart = cartCtx.products.length;
+    const numberOfCart = cartCtx.products.reduce((total, product) => {
+        return total + product.amount
+    },0);
     const product = cartCtx.products.map((product, index) => (
         <ProductPreview
             key={index}
@@ -21,7 +23,7 @@ const CartPreview = () => {
 
     return (
         <Fragment>
-            <i className={classes.basket} onClick={() => { console.log("clicked") }}>
+            <i className={classes.basket}>
                 <div className={classes.amount}>{numberOfCart}</div>
                 <img src={basketLogo} alt="basket icon" />
             </i>

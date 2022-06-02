@@ -3,13 +3,30 @@ import CartContext from "./CartContext";
 
 const cartReducer = (state, action) => {
     if (action.type === "ADD") {
-        const updatProducts = state.products.concat(action.product);
-        const updatTotalAmount = state.totalAmount + action.product.price ;
+        const updateTotalAmount = state.totalAmount + action.product.price;
+        const existIndexProduct = state.products.findIndex(
+            (product) => product.id === action.product.id
+        );
+        const existProduct = state.products[existIndexProduct];
+        let updateProducts;
+
+        if (existProduct) {
+            const updateProduct = {
+                ...existProduct,
+                amount: action.product.amount
+            }
+            updateProducts = [...state.products];
+            updateProducts[existIndexProduct] = updateProduct;
+        } else {
+            updateProducts = [...state.products,action.product];
+        }
+
         return {
-            products: updatProducts,
-            totalAmount: updatTotalAmount
+            products: updateProducts,
+            totalAmount: updateTotalAmount
         }
     }
+    
     return initializeCart;
 }
 
@@ -21,11 +38,12 @@ const initializeCart = {
 const CartProvider = (props) => {
     const [stateCart, dispatchCart] = useReducer(cartReducer, initializeCart)
     const addProduct = (product) => {
-        dispatchCart({type: "ADD", product: product});
+        dispatchCart({ type: "ADD", product: product });
+        console.log(stateCart)
     }
 
     const removeProduct = (id) => {
-        dispatchCart({type: "REMOVE", id: id});
+        dispatchCart({ type: "REMOVE", id: id });
     }
 
     const cartContext = {
@@ -34,7 +52,7 @@ const CartProvider = (props) => {
         addProduct: addProduct,
         removeProducts: removeProduct
     }
-    
+
     return (
         <CartContext.Provider value={cartContext} >
             {props.children}

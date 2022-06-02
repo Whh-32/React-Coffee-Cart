@@ -9,7 +9,8 @@ const Cart = (props) => {
         setCount(prevCount => {
             return type === "add" ? prevCount + 1 : prevCount - 1;
         });
-        props.onDataToCart(count)
+        props.onDataToCart(count +1) /* idk */
+        console.log(count)
     }
 
     let elem;
