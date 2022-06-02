@@ -16,6 +16,9 @@ const Products = (props) => {
             amount: amount  
         });
     }
+    const removeHandler = () => {
+        cartCtx.removeProducts(props.id)
+    }
 
     return (
         <div className={classes.product} >
@@ -29,7 +32,7 @@ const Products = (props) => {
                     <span className={classes.price} >${props.price}</span>
                 </div>
                 <div className={classes.cart}>
-                    <Cart onDataToCart={dataHandler} />
+                    <Cart onDataToCart={dataHandler} onRemove={removeHandler} />
                 </div>
 
             </div>

@@ -5,26 +5,32 @@ import icon from "../../images/icons8-shopping-cart-24.png"
 
 const Cart = (props) => {
     const [count, setCount] = useState(0);
-    const clickHandler = (type) => {
+    const addClickHandler = () => {
+        props.onDataToCart(count + 1)
         setCount(prevCount => {
-            return type === "add" ? prevCount + 1 : prevCount - 1;
+            return prevCount + 1
         });
-        props.onDataToCart(count +1) /* idk */
-        console.log(count)
+    }
+    const removeClickHandler = () => {
+        props.onDataToCart(count - 1)
+        props.onRemove()
+        setCount(prevCount => {
+            return prevCount - 1
+        });
     }
 
     let elem;
     if (count > 0) {
         elem = (
             <div className={classes.addCart} >
-                <button className={classes.buttons} onClick={() => { clickHandler("add") }} >+</button>
+                <button className={classes.buttons} onClick={() => { addClickHandler() }} >+</button>
                 <span>{count}</span>
-                <button className={classes.buttons} onClick={() => { clickHandler("remove") }} >-</button>
+                <button className={classes.buttons} onClick={() => { removeClickHandler() }} >-</button>
             </div>
         );
     } else {
         elem = (
-            <button className={classes.add} onClick={() => { clickHandler("add") }} >
+            <button className={classes.add} onClick={() => { addClickHandler() }} >
                 <img src={icon} alt="icon shop" />
             </button>);
     }

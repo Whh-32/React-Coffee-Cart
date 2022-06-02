@@ -18,7 +18,7 @@ const cartReducer = (state, action) => {
             updateProducts = [...state.products];
             updateProducts[existIndexProduct] = updateProduct;
         } else {
-            updateProducts = [...state.products,action.product];
+            updateProducts = [...state.products, action.product];
         }
 
         return {
@@ -26,7 +26,26 @@ const cartReducer = (state, action) => {
             totalAmount: updateTotalAmount
         }
     }
-    
+    if (action.type === "REMOVE") {
+        const existIndexProduct = state.products.findIndex(
+            (product) => product.id === action.id
+        )
+        const existProduct = state.products[existIndexProduct]
+        const updateTotalAmount = state.totalAmount - (existProduct.price * 2) /*shit*/
+        let updateProducts;
+        if (existProduct.amount === 0) {
+            updateProducts = state.products.filter((product) => product.id !== action.id)
+        } else {
+            const updateProduct = {...existProduct, amount: existProduct.amount - 1}
+            updateProducts = [...state.products]
+            updateProducts[existIndexProduct] = updateProduct;
+        }
+        return {
+            products: updateProducts,
+            totalAmount: updateTotalAmount
+        }
+    }
+
     return initializeCart;
 }
 
