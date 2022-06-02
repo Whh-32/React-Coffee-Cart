@@ -31,9 +31,9 @@ const cartReducer = (state, action) => {
             (product) => product.id === action.id
         )
         const existProduct = state.products[existIndexProduct]
-        const updateTotalAmount = state.totalAmount - (existProduct.price * 2) /*shit*/
+        const updateTotalAmount = state.totalAmount - existProduct.price
         let updateProducts;
-        if (existProduct.amount === 0) {
+        if (existProduct.amount === 1) {   /* whyyyyyyyyyyyyy????? === ok!!!! */
             updateProducts = state.products.filter((product) => product.id !== action.id)
         } else {
             const updateProduct = {...existProduct, amount: existProduct.amount - 1}
@@ -63,6 +63,7 @@ const CartProvider = (props) => {
 
     const removeProduct = (id) => {
         dispatchCart({ type: "REMOVE", id: id });
+        console.log(stateCart)
     }
 
     const cartContext = {

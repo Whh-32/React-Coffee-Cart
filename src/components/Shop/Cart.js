@@ -12,7 +12,6 @@ const Cart = (props) => {
         });
     }
     const removeClickHandler = () => {
-        props.onDataToCart(count - 1)
         props.onRemove()
         setCount(prevCount => {
             return prevCount - 1
