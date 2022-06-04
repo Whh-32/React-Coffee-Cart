@@ -12,8 +12,7 @@ const Products = (props) => {
             description: props.description,
             price: props.price,
             img: props.img,
-            id: props.id,
-            amount: amount 
+            id: props.id
         });
     }
     const removeHandler = () => {
@@ -29,10 +28,10 @@ const Products = (props) => {
                 <div className={classes.information}>
                     <span className={classes.title} >{props.title}</span>
                     <span className={classes.text} >{props.description}</span>
-                    <span className={classes.price} >${props.price}</span>
+                    <span className={classes.price} >${props.price.toFixed(2)}</span>
                 </div>
                 <div className={classes.cart}>
-                    <Cart onDataToCart={dataHandler} onRemove={removeHandler} />
+                    <Cart onDataToCart={dataHandler} onRemove={removeHandler} id={props.id} />
                 </div>
 
             </div>

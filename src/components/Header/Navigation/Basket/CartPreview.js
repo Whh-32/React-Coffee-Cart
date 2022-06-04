@@ -28,7 +28,7 @@ const CartPreview = () => {
                 <div className={classes.amount}>{numberOfCart}</div>
                 <img src={basketLogo} alt="basket icon" />
             </i>
-            <div className={classes.cartPreview} style={cartCtx.totalAmount === 0 ? { display: "none" } : {}} >
+            <div className={classes.cartPreview} style={cartCtx.totalAmount <= 0 ? { display: "none" } : {}} >
                 <div className={classes.cart}>
                     <div className={classes.header}>{"Go To Cart >"}</div>
                     <div className={classes.products}>

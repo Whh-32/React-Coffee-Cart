@@ -13,12 +13,13 @@ const cartReducer = (state, action) => {
         if (existProduct) {
             const updateProduct = {
                 ...existProduct,
-                amount: action.product.amount
+                amount: existProduct.amount + 1
             }
             updateProducts = [...state.products];
             updateProducts[existIndexProduct] = updateProduct;
         } else {
-            updateProducts = [...state.products, action.product];
+            const addamount = {...action.product, amount: 1}
+            updateProducts = [...state.products, addamount];
         }
 
         return {
@@ -33,7 +34,7 @@ const cartReducer = (state, action) => {
         const existProduct = state.products[existIndexProduct]
         const updateTotalAmount = state.totalAmount - existProduct.price
         let updateProducts;
-        if (existProduct.amount === 1) {   /* whyyyyyyyyyyyyy????? === ok!!!! */
+        if (existProduct.amount === 1) {
             updateProducts = state.products.filter((product) => product.id !== action.id)
         } else {
             const updateProduct = {...existProduct, amount: existProduct.amount - 1}
@@ -58,17 +59,15 @@ const CartProvider = (props) => {
     const [stateCart, dispatchCart] = useReducer(cartReducer, initializeCart)
     const addProduct = (product) => {
         dispatchCart({ type: "ADD", product: product });
-        console.log(stateCart)
     }
 
     const removeProduct = (id) => {
         dispatchCart({ type: "REMOVE", id: id });
-        console.log(stateCart)
     }
 
     const cartContext = {
         products: stateCart.products,
-        totalAmount: stateCart.totalAmount,
+        totalAmount: stateCart.totalAmount.toFixed(2),
         addProduct: addProduct,
         removeProducts: removeProduct
     }

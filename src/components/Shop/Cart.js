@@ -1,29 +1,25 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
+import Compare from '../../Function/Compare'
 
 import classes from "./Cart.module.css"
 import icon from "../../images/icons8-shopping-cart-24.png"
+import CartContext from '../Context/CartContext'
 
 const Cart = (props) => {
-    const [count, setCount] = useState(0);
+    const cartCtx = useContext(CartContext)
     const addClickHandler = () => {
-        props.onDataToCart(count + 1)
-        setCount(prevCount => {
-            return prevCount + 1
-        });
+        props.onDataToCart()
     }
     const removeClickHandler = () => {
         props.onRemove()
-        setCount(prevCount => {
-            return prevCount - 1
-        });
     }
 
     let elem;
-    if (count > 0) {
+    if (Compare(cartCtx.products, props.id) > 0) {
         elem = (
             <div className={classes.addCart} >
                 <button className={classes.buttons} onClick={() => { addClickHandler() }} >+</button>
-                <span>{count}</span>
+                <span>{Compare(cartCtx.products, props.id)}</span>
                 <button className={classes.buttons} onClick={() => { removeClickHandler() }} >-</button>
             </div>
         );
