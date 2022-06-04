@@ -22,8 +22,9 @@
 }
 
 .description>span {
-    color: rgb(255, 232, 232);
-    font-size: 16px;
+    color: rgb(255, 255, 255);
+    font-size: 34px;
+    font-weight: 900;
     transition: all 500ms;
 }
 
@@ -53,7 +54,7 @@ img {
         font-size: 25px;
     }
     .description>span {
-        color: rgb(255, 232, 232);
+        color: rgb(255, 255, 255);
         font-size: 13px;
     }
   }
@@ -75,7 +76,7 @@ img {
         font-size: 35px;
     }
     .description>span {
-        color: rgb(255, 232, 232);
+        color: rgb(255, 255, 255);
         font-size: 16px;
     }
   }

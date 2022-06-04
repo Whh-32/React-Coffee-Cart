@@ -16,19 +16,19 @@ const Slider = () => {
     const slideData = [{
         image: img1,
         title: "MAXX Coffee",
-        description: "Est single origin grounds french press dripper that whipped. Dark, doppio siphon, barista grinder grounds, plunger pot at half and half so coffee. Wings as froth mazagran frappuccino as doppio filter. Seasonal con panna galão froth, in bar  con panna, spoon plunger pot at variety white.",
+        description: "IS SOURCED FROM AROUND THE WORLD",
         id: 1
     },
     {
         image: img2,
         title: "What is coffee?",
-        description: "Cup qui spoon fair trade cultivar, frappuccino robust milk grinder trifecta french press. Whipped coffee, roast milk cortado latte robust shop iced. Sit macchiato, percolator viennese, cultivar rich decaffeinated single origin doppio americano.",
+        description: "IS SOURCED FROM AROUND THE WORLD",
         id: 2
     },
     {
         image: img3,
         title: "Onlide Order",
-        description: "Variety, grinder, acerbic, single origin dripper beans, bar , mocha a doppio latte instant. Crema, milk saucer that caffeine body crema cinnamon arabica cinnamon.",
+        description: "IS SOURCED FROM AROUND THE WORLD",
         id: 3
     }
     ];

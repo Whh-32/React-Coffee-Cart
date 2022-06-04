@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import CartContext from "./CartContext";
 
 const cartReducer = (state, action) => {
@@ -18,7 +18,7 @@ const cartReducer = (state, action) => {
             updateProducts = [...state.products];
             updateProducts[existIndexProduct] = updateProduct;
         } else {
-            const addamount = {...action.product, amount: 1}
+            const addamount = { ...action.product, amount: 1 }
             updateProducts = [...state.products, addamount];
         }
 
@@ -37,7 +37,7 @@ const cartReducer = (state, action) => {
         if (existProduct.amount === 1) {
             updateProducts = state.products.filter((product) => product.id !== action.id)
         } else {
-            const updateProduct = {...existProduct, amount: existProduct.amount - 1}
+            const updateProduct = { ...existProduct, amount: existProduct.amount - 1 }
             updateProducts = [...state.products]
             updateProducts[existIndexProduct] = updateProduct;
         }
@@ -50,9 +50,14 @@ const cartReducer = (state, action) => {
     return initializeCart;
 }
 
-const initializeCart = {
-    products: [],
-    totalAmount: 0
+let initializeCart;
+if (localStorage.getItem("cart") === null) {
+    initializeCart = {
+        products: [],
+        totalAmount: 0
+    }
+} else {
+    initializeCart = JSON.parse(localStorage.getItem("cart"))
 }
 
 const CartProvider = (props) => {
@@ -71,6 +76,10 @@ const CartProvider = (props) => {
         addProduct: addProduct,
         removeProducts: removeProduct
     }
+
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(stateCart));
+    },[stateCart])
 
     return (
         <CartContext.Provider value={cartContext} >

@@ -36,7 +36,7 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    font-size: 14px;
+    font-size: 13px;
     width: 250px;
     margin: 8px 0px;
     color: hsla(0, 0%, 0%, 0.596);
@@ -45,7 +45,7 @@
 .price {
     position: absolute;
     bottom: 8px;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 900;
     color: rgb(27, 87, 47);
 }

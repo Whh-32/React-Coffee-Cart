@@ -44,7 +44,7 @@ const Footer = () => {
 
                 </div>
                 <div className={classes.production}>
-                    <span> ©2022 MAXX Coffee Company. All rights reserved.</span>
+                    <span> Copyright© 2011-2022 MAXX Coffee. All rights reserved.</span>
                     <div className={classes.icons}>
                         {icons.map((icon) => (
                             <a href='/' key={icon.id} >
